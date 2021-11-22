@@ -7,8 +7,8 @@ let chooseOption = (opt1, opt2) => {
     return (randNum === 0 ? opt1 : opt2);
 }
 
-const attackPlayer = function() {
-    let health = (health - randomDamage());
+const attackPlayer = function(health) {
+    health = health - randomDamage();
     return health;
 }
 
@@ -18,8 +18,13 @@ let logDeath = (winner, loser) => {console.log(`${winner} defeated ${loser}`);}
 
 let isDead = (health) => {(health <= 0);}
 
+
+
 function fight(player1, player2, player1Health, player2Health) {
+
     while (true) {
+        debugger;
+
         let attacker = chooseOption(player1, player2);
         if (attacker === player1) {
             player2Health = attackPlayer(player2Health);
@@ -30,7 +35,8 @@ function fight(player1, player2, player1Health, player2Health) {
                 }
             }
         }
-        else (player1Health = attackPlayer(player1Health));
+        else {
+            player1Health = attackPlayer(player1Health);
             logHealth(player1, player1Health); {
                 if (player1Health === isDead) {
                     logDeath(player1, player2);
@@ -39,7 +45,5 @@ function fight(player1, player2, player1Health, player2Health) {
             }
 }
 }
-
+}
 fight("Kat", "Jane", 100, 100);
-
-
