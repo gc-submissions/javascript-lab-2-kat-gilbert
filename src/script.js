@@ -1,9 +1,6 @@
 "use strict";
 
-let randomDamage = () => {
-    Math.floor((Math.random() * 10) + 1);
-    return randomDamage();
-}
+let randomDamage = () => {Math.floor((Math.random() * 10) + 1);}
 
 let chooseOption = (opt1, opt2) => {
     let randNum = (Math.floor(Math.random() * 2));
@@ -19,7 +16,14 @@ let logHealth = (player, health) => {console.log(`${player} health: ${health}`);
 
 let logDeath = (winner, loser) => {console.log(`${winner} defeated ${loser}`);}
 
-let isDead = (health) => {(health <= 0);}
+let isDead = (health) => {
+    if (health <= 0) {
+    return true;
+    }
+    else {
+        return false;
+    }
+}
 
 function fight(player1, player2, player1Health, player2Health) {
 
