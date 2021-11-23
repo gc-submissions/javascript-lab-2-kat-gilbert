@@ -18,8 +18,6 @@ let logDeath = (winner, loser) => {console.log(`${winner} defeated ${loser}`);}
 
 let isDead = (health) => {(health <= 0);}
 
-
-
 function fight(player1, player2, player1Health, player2Health) {
 
     while (true) {
@@ -29,23 +27,21 @@ function fight(player1, player2, player1Health, player2Health) {
 
         if (attacker === player1) {
             player2Health = attackPlayer(player2Health);
-            logHealth(player2, player2Health); {
-                if (player2Health === isDead) {
+            logHealth(player2, player2Health);
+                if (isDead(player2Health) === true) {
                 logDeath(player1, player2);
                     break;
                 }
-            }
-        } 
+            }         
         else {
             player1Health = attackPlayer(player1Health);
-            logHealth(player1, player1Health); {
-                if (player1Health === isDead) {
-                    logDeath(player2, player1);
-                    break;
-                }
+            logHealth(player1, player1Health)
+                if (isDead(player1Health) === true) { 
+                logDeath(player2, player1);
+                break; 
             }
         }
-}
+     }
 }
 fight("Kat", "Jane", 100, 100);
 
