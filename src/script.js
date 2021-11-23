@@ -1,6 +1,9 @@
 "use strict";
 
-let randomDamage = () => {Math.floor((Math.random() * 10) + 1);}
+let randomDamage = () => {
+    Math.floor((Math.random() * 10) + 1);
+    return randomDamage;
+}
 
 let chooseOption = (opt1, opt2) => {
     let randNum = (Math.floor(Math.random() * 2));
@@ -8,7 +11,7 @@ let chooseOption = (opt1, opt2) => {
 }
 
 const attackPlayer = function(health) {
-    health = health - randomDamage();
+    health - randomDamage();
     return health;
 }
 
@@ -27,8 +30,8 @@ function fight(player1, player2, player1Health, player2Health) {
 
         if (attacker === player1) {
             player2Health = attackPlayer(player2Health);
-            logHealth(player2, player2Health);
-                if (isDead(player2Health) === true) {
+            logHealth(player2, player2Health)
+                if (isDead(player2Health)) {
                 logDeath(player1, player2);
                     break;
                 }
@@ -36,7 +39,7 @@ function fight(player1, player2, player1Health, player2Health) {
         else {
             player1Health = attackPlayer(player1Health);
             logHealth(player1, player1Health)
-                if (isDead(player1Health) === true) { 
+                if (isDead(player1Health)) { 
                 logDeath(player2, player1);
                 break; 
             }
