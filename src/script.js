@@ -2,7 +2,7 @@
 
 let randomDamage = () => {
     Math.floor((Math.random() * 10) + 1);
-    return randomDamage;
+    return randomDamage();
 }
 
 let chooseOption = (opt1, opt2) => {
